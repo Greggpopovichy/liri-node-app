@@ -1,7 +1,5 @@
-//to display returned object properties
-
 //const util = require("util");
-//attempting to use util to help display JSON objects more clearly
+//^attempting to use util to help display JSON objects more clearly
 
 //TWITTER DATA
 var input = process.argv[2];
@@ -111,7 +109,7 @@ else if(input === "movie-this") {
 /*Having trouble getting this to run whatever function corresponds to the input in "random.txt".
 I've required "fs" to read and append random.txt. My thought process was to split the strings in random.txt into an array,
 and then call the appropriate function using the indexes of that array. If there were more than one command/string, I would loop through the array
-instead of just using dataArr[0] and dataArr[1]. Close but no cigar. 
+instead of just using dataArr[0] and dataArr[1]. Close but no cigar.
 */
 
 // else if(input === "do-what-it-says") {
