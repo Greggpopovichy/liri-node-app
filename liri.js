@@ -54,9 +54,7 @@ else if (input === "spotify-this-song") {
             return console.log(err);
         }
         else {
-            //console.log(data.tracks);
             var items = data.tracks.items;
-            //console.log(items);
             for (var i = 0; i < items.length; i++) {
                 //console.log(items[i]);
                 console.log("Artist: " + items[i].artists[0].name);
@@ -81,16 +79,12 @@ else if(input === "movie-this") {
         else {
             movieName = movieName + nodeArgs[i];
         }
-        // if(nodeArgs === null){
-        //     movieName = "Mr Nobody";
-        // }
     }
 
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
 
     request(queryUrl, function (err, response, body) {
         if (!err && response.statusCode === 200) {
-            //console.log(body);
             console.log("Movie Title: " + JSON.parse(body).Title);
             console.log("Year: " + JSON.parse(body).Year);
             console.log("IMDB Rating: " + JSON.parse(body).imdbRating);
@@ -98,40 +92,7 @@ else if(input === "movie-this") {
             console.log("Produced in: " + JSON.parse(body).Country);
             console.log("Plot: " + JSON.parse(body).Plot);
             console.log("Notable Actors: " + JSON.parse(body).Actors);
-            //console.log(JSON.parse(body));
         }
     });
 }
 
-/*Having trouble getting this to run whatever function corresponds to the input in "random.txt".
-I've required "fs" to read and append random.txt. My thought process was to split the strings in random.txt into an array,
-and then call the appropriate function using the indexes of that array. If there were more than one command/string, I would loop through the array
-instead of just using dataArr[0] and dataArr[1]. Close but no cigar.
-*/
-
-// else if(input === "do-what-it-says") {
-//     var fs = require("fs");
-//     fs.readFile("random.txt", "utf-8", function (err, data) {
-//         if (err) {
-//             return console.log(err);
-//         } else {
-//             var dataArr = data.split(",");
-//                 if(dataArr[0] === "spotify-this-song"){
-//                     spotifyParams = {
-//                         type: "track",
-//                         query: dataArr[1]
-//                     };
-//
-//                 }
-//             // process.argv[3] = dataArr[0];
-//             // process.argv[4] = dataArr[1];
-//             // for (var i = 3; i < process.argv.length; i++) {
-//             //     if (i > 3 && i < process.argv.length) {
-// //             movieName = movieName + "+" + process.argv[i];
-// //         }
-// //         else {
-// //             movieName = movieName + nodeArgs[i];
-// //         }
-//         }
-//     });
-// }
