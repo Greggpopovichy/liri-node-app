@@ -1,7 +1,9 @@
 //TWITTER DATA
-var input = process.argv[2];
 var keys = require("./keys.js");
 
+var input = process.argv[2];
+
+//in terminal, if user inputs 'node liri.js my-tweets' they will get a list of all of my latest tweets.
 if(input === "my-tweets") {
     var twitter = require("twitter");
     var twitterKeys = keys.twitterKeys;
@@ -25,6 +27,7 @@ if(input === "my-tweets") {
             }
         }
     }
+    //if user inputs 'node liri.js spotify-this-song <song name>', they will get back data about the song from the spotify api
 else if (input === "spotify-this-song") {
 
     var spotify = require("node-spotify-api");
@@ -65,9 +68,8 @@ else if (input === "spotify-this-song") {
         }
     }
 }
-
+// if the user inputs 'node liri.js movie-this <movie title>', they will get data about the requested movie from the OMDB api.
 else if(input === "movie-this") {
-
     var request = require("request");
     var movieName = "";
     var nodeArgs = process.argv;
