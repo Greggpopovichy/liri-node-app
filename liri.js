@@ -1,6 +1,3 @@
-//const util = require("util");
-//^attempting to use util to help display JSON objects more clearly
-
 //TWITTER DATA
 var input = process.argv[2];
 var keys = require("./keys.js");
